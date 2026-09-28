@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1116">
+  <meta name="description" content="07.02.2024'ten beri birlikte yazdığımız hikâyenin küçük bir hatırası.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Bizim Hikâyemiz ❤️">
+  <meta property="og:description" content="07.02.2024'ten beri, seninle. Ve hikâyemiz hâlâ devam ediyor...">
+  <meta property="og:image" content="https://yigittaner.com.tr/assets/photos/ani-15.jpeg">
+  <meta property="og:url" content="https://yigittaner.com.tr/">
+  <title>Bizim Hikâyemiz ❤️</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/heart.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body class="is-locked">
+  <div class="grain" aria-hidden="true"></div>
+
+  <section class="entry" id="entry" aria-label="Hikâyemize giriş">
+    <div class="entry-glow" aria-hidden="true"></div>
+    <div class="entry-topline"><span>YİĞİT &amp; SEN</span><span>07.02.2024 — ∞</span></div>
+    <div class="entry-content">
+      <p class="eyebrow entry-eyebrow">Sadece ikimize ait</p>
+      <h1>Her hikâyenin<br><em>bir başlangıcı var.</em></h1>
+      <p class="entry-intro">Bizimkini hatırlıyor musun?</p>
+      <button class="envelope-button" id="open-envelope" type="button" aria-label="Bizim hikâyemize giriş mektubunu aç">
+        <span class="envelope-scene" aria-hidden="true">
+          <span class="envelope-letter"><span class="letter-monogram">Y <span>&amp;</span> S</span></span>
+          <span class="envelope-back"></span>
+          <span class="envelope-flap"></span>
+          <span class="envelope-front"></span>
+          <span class="envelope-seal">♥</span>
+        </span>
+        <span class="envelope-label">Bizim hikâyemize giriş <span aria-hidden="true">↗</span></span>
+      </button>
+      <div class="date-letter" id="date-letter" hidden>
+        <p class="eyebrow">Küçük bir soru</p>
+        <h2>Her şeyin başladığı tarihi<br><em>hatırlıyor musun?</em> <span class="small-heart">♥</span></h2>
+        <form id="date-form" novalidate>
+          <label for="date-answer">Gün . Ay . Yıl</label>
+          <div class="date-form-row">
+            <input id="date-answer" name="date" type="text" inputmode="numeric" autocomplete="off" placeholder="GG.AA.YYYY" maxlength="10" aria-describedby="date-error">
+            <button type="submit" aria-label="Tarihi doğrula">→</button>
+          </div>
+          <p class="date-error" id="date-error" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <p class="entry-bottom">Bir tarih. Binlerce anı.</p>
+  </section>
+
+  <main id="main-content" hidden>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Başa dön">Y <span>&amp;</span> S<span class="brand-period">.</span></a>
+      <nav aria-label="Sayfa bölümleri">
+        <a href="#zaman">Zamanımız</a>
+        <a href="#anilar">Anılar</a>
+        <a href="#mektup">Mektup</a>
+      </nav>
+      <span class="header-date">07 ŞUBAT 2024</span>
+    </header>
+
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow light">BİZİM HİKÂYEMİZ · BÖLÜM 01</p>
+        <!-- ANA METİNLERİ BURADAN DEĞİŞTİR -->
+        <h1 id="hero-title">07.02.2024’ten beri,<br><em>seninle.</em> <span class="hero-heart">♥</span></h1>
+        <p>Ve hikâyemiz hâlâ devam ediyor...</p>
+        <a class="text-link light-link" href="#zaman">Hikâyemize devam et <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-index"><span>01 / ∞</span><span>BİRLİKTE GEÇEN HER ANA</span></div>
+    </section>
+
+    <section class="opening-note section-wrap reveal" aria-label="Giriş notu">
+      <div class="section-index">01 <span>/</span> BİR NOT</div>
+      <div class="opening-copy">
+        <p class="eyebrow">Küçük bir hatıra defteri</p>
+        <h2>Bazı anlar geçer.<br><em>Bazıları bizimle kalır.</em></h2>
+        <p>Bir fotoğrafa bakınca yeniden gülümsediğimiz, küçük bir anı düşününce aynı güne döndüğümüz bir yer olsun istedim. Burası, birlikte biriktirdiklerimize ait.</p>
+        <span class="signature">Seninle, her şey daha güzel.</span>
+      </div>
+      <button class="opening-photo photo-button" type="button" data-photo="0" aria-label="Doğadaki fotoğrafımızı büyüt">
+        <img src="assets/photos/ani-01.jpeg" alt="Doğada birlikte çekildiğimiz bir fotoğraf" loading="lazy" decoding="async">
+        <span class="photo-zoom" aria-hidden="true">↗</span>
+      </button>
+    </section>
+
+    <section class="counter-section" id="zaman" aria-labelledby="counter-title">
+      <div class="counter-inner reveal">
+        <p class="eyebrow light">Her anı ayrı güzel</p>
+        <h2 id="counter-title">Birlikte geçen <em>zamanımız</em></h2>
+        <p class="counter-lead">07 Şubat 2024’ten bu yana...</p>
+        <div class="counter-grid" aria-label="Birlikte geçen süre">
+          <div class="counter-unit"><strong id="years">0</strong><span>Yıl</span></div>
+          <div class="counter-unit"><strong id="months">0</strong><span>Ay</span></div>
+          <div class="counter-unit"><strong id="days">0</strong><span>Gün</span></div>
+          <div class="counter-unit"><strong id="hours">0</strong><span>Saat</span></div>
+          <div class="counter-unit"><strong id="minutes">0</strong><span>Dakika</span></div>
+          <div class="counter-unit seconds"><strong id="seconds">0</strong><span>Saniye</span></div>
+        </div>
+        <p class="counter-foot">Her saniyesi seninle daha güzel.</p>
+      </div>
+    </section>
+
+    <section class="memories section-wrap" id="anilar" aria-labelledby="memories-title">
+      <div class="section-heading reveal">
+        <div class="section-index">02 <span>/</span> FOTOĞRAF HİKÂYESİ</div>
+        <div><p class="eyebrow">Anlardan bir koleksiyon</p><h2 id="memories-title">Birlikteyken<br><em>her yer biraz ev.</em></h2></div>
+        <p>Bir gün deniz kenarında, bir gün çiçeklerin arasında. Nerede olduğumuzdan çok, yan yana oluşumuz kaldı aklımda.</p>
+      </div>
+      <div class="feature-story reveal">
+        <button class="feature-photo photo-button" type="button" data-photo="14" aria-label="Boğaz kıyısındaki fotoğrafımızı büyüt">
+          <img src="assets/photos/ani-15.jpeg" alt="İstanbul Boğazı kıyısında yan yana" loading="lazy" decoding="async">
+          <span class="photo-zoom" aria-hidden="true">↗</span>
+        </button>
+        <div class="feature-caption"><span>İSTANBUL, BİZ VE O AN</span><span>01 / 20</span></div>
+      </div>
+      <div class="editorial-row reveal">
+        <div class="editorial-copy"><span class="story-number">I.</span><p class="eyebrow">Yan yana</p><h3>En sevdiğim anılarımda <em>hep sen varsın.</em></h3><p>Kalabalık bir şehrin ortasında bile, bazı anlar yalnızca ikimize ait hissediyor.</p></div>
+        <div class="stacked-photos">
+          <button class="photo-button stack-main" type="button" data-photo="12" aria-label="Galata fotoğrafımızı büyüt"><img src="assets/photos/ani-13.jpeg" alt="Galata Kulesi önünde bir selfie" loading="lazy" decoding="async"><span class="photo-zoom" aria-hidden="true">↗</span></button>
+          <button class="photo-button stack-small" type="button" data-photo="10" aria-label="Akşam fotoğrafımızı büyüt"><img src="assets/photos/ani-11.jpeg" alt="Bir akşam birbirimize bakarken" loading="lazy" decoding="async"><span class="photo-zoom" aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="film-section" aria-labelledby="film-title">
+      <div class="film-heading section-wrap reveal"><div><p class="eyebrow">Kare kare biz</p><h2 id="film-title">Küçük anlar, <em>büyük hisler.</em></h2></div><span>← KAYDIR →</span></div>
+      <div class="film-strip" id="film-strip" aria-label="Kaydırılabilir anı galerisi"></div>
+      <div class="film-bottom" aria-hidden="true"><span>● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ● ●</span><span>Y &amp; S · ARŞİV</span></div>
+    </section>
+
+    <section class="quote-section reveal"><span class="quote-mark">“</span><blockquote>İyi ki yollarımız <em>kesişmiş.</em></blockquote><p>Ve iyi ki, hâlâ aynı yolda yürüyoruz.</p></section>
+
+    <section class="timeline-section section-wrap" id="hikayemiz" aria-labelledby="timeline-title">
+      <div class="section-heading reveal"><div class="section-index">03 <span>/</span> BİZİM HİKÂYEMİZ</div><div><p class="eyebrow">Bir günle başlayan</p><h2 id="timeline-title">Birlikte yazdığımız<br><em>hikâye.</em></h2></div><p>Her şey küçük bir başlangıçla oldu. Gerisi, birlikte biriktirdiğimiz güzel günler.</p></div>
+      <!-- TIMELINE / ANILAR: Yeni olayları js/main.js içindeki timelineEvents dizisine ekleyin. -->
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="wide-memory reveal" aria-label="Çiçekler arasında bir anı">
+      <button class="photo-button" type="button" data-photo="3" aria-label="Laleler arasındaki fotoğrafımızı büyüt"><img src="assets/photos/ani-04.jpeg" alt="Rengârenk lalelerin arasında birlikte" loading="lazy" decoding="async"><span class="photo-zoom" aria-hidden="true">↗</span></button>
+      <div class="wide-memory-caption"><span>İYİ Kİ VARSIN.</span><span>BAHAR GİBİ BİR ANI</span></div>
+    </section>
+
+    <section class="letter-section section-wrap" id="mektup" aria-labelledby="letter-title">
+      <div class="letter-intro reveal"><div class="section-index">04 <span>/</span> SANA MEKTUP</div><p class="eyebrow">Sadece sana</p><h2 id="letter-title">Söylemek istediğim<br><em>bir şey var...</em></h2><p>Bazı kelimeler saklanmaz. Bir mektuba dönüşür.</p></div>
+      <div class="letter-interaction reveal">
+        <button class="letter-envelope" id="open-love-letter" type="button" aria-expanded="false" aria-controls="love-letter-content">
+          <span class="letter-envelope-back" aria-hidden="true"></span><span class="letter-envelope-flap" aria-hidden="true"></span><span class="letter-envelope-front" aria-hidden="true"></span><span class="letter-envelope-seal" aria-hidden="true">♥</span>
+          <span class="letter-envelope-caption">Sana söylemek istediğim bir şey var...</span>
+        </button>
+        <p class="letter-prompt" id="letter-prompt">Açmak için dokun <span aria-hidden="true">↗</span></p>
+        <article class="love-letter-content" id="love-letter-content" hidden>
+          <span class="love-letter-date">SANA, HER ZAMAN</span>
+          <h3>Canım sevgilim,</h3>
+          <!-- MEKTUP METNİNİ BURADAN DEĞİŞTİR -->
+          <p>Hayatıma girdiğin günden beri birlikte biriktirdiğimiz her an benim için çok değerli. Bu site sadece birkaç fotoğraf ve birkaç satırdan ibaret değil. Bizim geçen zamanımızın küçük bir hatırası. Daha yaşayacağımız, güleceğimiz ve birlikte hatırlayacağımız çok fazla günümüz olsun. Seni seviyorum. ❤️</p>
+          <span class="love-letter-signature">Daima seninle, <em>Yiğit</em></span>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-section" aria-labelledby="final-title"><div class="final-shade"></div><div class="final-content reveal"><p class="eyebrow light">Hikâyemizin devamına</p><h2 id="final-title">Bu daha<br><em>başlangıç.</em> <span>♥</span></h2><p>07.02.2024 — ∞</p></div><div class="final-footer"><span>Y &amp; S</span><span>Senin için hazırlandı.</span><a href="#top" aria-label="Başa dön">↑</a></div></section>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotoğraf görüntüleyici" hidden>
+    <button class="lightbox-close" type="button" aria-label="Fotoğrafı kapat">×</button>
+    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Önceki fotoğraf">←</button>
+    <figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Sonraki fotoğraf">→</button>
+    <span class="lightbox-count" id="lightbox-count"></span>
+  </div>
+</body>
+</html>
