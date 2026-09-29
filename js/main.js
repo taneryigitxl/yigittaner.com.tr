@@ -1,19 +1,21 @@
 /*
  * KOLAY DÜZENLEME ALANI
- * BAŞLANGIÇ TARİHİ: Aşağıdaki tarihi ve index.html'deki görünen tarih metinlerini birlikte değiştirin.
+ * BAŞLANGIÇ TARİHİ: 07 Şubat 2024, İstanbul saatiyle 00:00:00.
  * GİRİŞİ HATIRLA: false yaparsanız sayfa her açıldığında tarih yeniden sorulur.
  */
 const START_DATE = { year: 2024, month: 2, day: 7 };
 const REMEMBER_ENTRY = false;
 const STORAGE_KEY = 'bizim-hikayemiz-giris-v2';
 const TIME_ZONE = 'Europe/Istanbul';
+/* Kendi müziğinizi assets/audio/ klasörüne ekleyip yolunu buraya yazın. */
+const MUSIC_SRC = '';
 
 /* FOTOĞRAFLAR: assets/photos klasörüne dosya ekleyip bu diziyi düzenleyin. */
 const photos = [
-  { src: 'assets/photos/ani-01.jpeg', alt: 'Doğada birlikte bir selfie', caption: 'Doğanın içinde, yan yana' },
+  { src: 'assets/photos/ani-01.jpeg', alt: 'Doğada birlikte bir selfie', caption: 'Doğanın içinde, yan yana', date: '', location: '', note: 'Birlikte geçirilen sakin bir an.' },
   { src: 'assets/photos/ani-02.jpeg', alt: 'Gece vapurunda birlikte', caption: 'Bir İstanbul gecesi' },
   { src: 'assets/photos/ani-03.jpeg', alt: 'Aynada birlikte bir fotoğraf', caption: 'Küçük bir an' },
-  { src: 'assets/photos/ani-04.jpeg', alt: 'Laleler arasında birlikte', caption: 'Baharın renkleri' },
+  { src: 'assets/photos/ani-04.jpeg', alt: 'Laleler arasında birlikte', caption: 'Baharın renkleri', date: '', location: '', note: 'Renklerin arasında, yan yana.' },
   { src: 'assets/photos/ani-05.jpeg', alt: 'Akşam birlikte çekilen fotoğraf', caption: 'Yan yana, yine' },
   { src: 'assets/photos/ani-06.jpeg', alt: 'Bir kafede birlikte selfie', caption: 'Sıradan bir günün güzelliği' },
   { src: 'assets/photos/ani-07.jpeg', alt: 'Açık havada birlikte selfie', caption: 'Güneşli bir gün' },
@@ -22,9 +24,9 @@ const photos = [
   { src: 'assets/photos/ani-10.jpeg', alt: 'Tiyatro koltuklarında birlikte', caption: 'Birlikte bir akşam' },
   { src: 'assets/photos/ani-11.jpeg', alt: 'Akşam bir masada birbirimize bakarken', caption: 'Bir bakış yeter' },
   { src: 'assets/photos/ani-12.jpeg', alt: 'Ormanda yakın bir selfie', caption: 'İyi ki varsın' },
-  { src: 'assets/photos/ani-13.jpeg', alt: 'Galata Kulesi önünde bir selfie', caption: 'Galata ve biz' },
+  { src: 'assets/photos/ani-13.jpeg', alt: 'Galata Kulesi önünde bir selfie', caption: 'Galata ve biz', date: '', location: 'İstanbul · Galata', note: 'Şehrin ortasında bir anımız.' },
   { src: 'assets/photos/ani-14.jpeg', alt: 'Yeşillikler önünde birlikte', caption: 'Yan yana olmak' },
-  { src: 'assets/photos/ani-15.jpeg', alt: 'İstanbul Boğazı kıyısında birlikte', caption: 'Boğaz kıyısında' },
+  { src: 'assets/photos/ani-15.jpeg', alt: 'İstanbul Boğazı kıyısında birlikte', caption: 'Boğaz kıyısında', date: '', location: 'İstanbul · Boğaz', note: 'Birlikte baktığımız manzara.' },
   { src: 'assets/photos/ani-16.jpeg', alt: 'Siyah beyaz bir şehir fotoğrafı', caption: 'Şehre karşı' },
   { src: 'assets/photos/ani-17.jpeg', alt: 'Yolculukta birlikte selfie', caption: 'Yolda da birlikte' },
   { src: 'assets/photos/ani-18.jpeg', alt: 'Güneşli bir parkta birlikte', caption: 'Güneşli bir an' },
@@ -120,7 +122,7 @@ function calendarDifference(now) {
   const current = istanbulParts(now);
   const startDay = Date.UTC(START_DATE.year, START_DATE.month - 1, START_DATE.day);
   const today = Date.UTC(current.year, current.month - 1, current.day);
-  if (today < startDay) return { years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0 };
+  if (today < startDay) return { years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0, elapsedDays: 0, totalDays: 0 };
 
   let years = current.year - START_DATE.year;
   if (current.month < START_DATE.month || (current.month === START_DATE.month && current.day < START_DATE.day)) years--;
@@ -130,15 +132,19 @@ function calendarDifference(now) {
   const anchor = Date.UTC(anniversaryYear, START_DATE.month - 1 + months, START_DATE.day);
   const days = Math.floor((today - anchor) / 86400000);
 
-  return { years, months, days, hours: current.hour, minutes: current.minute, seconds: current.second };
+  const elapsedDays = Math.floor((today - startDay) / 86400000);
+  return { years, months, days, hours: current.hour, minutes: current.minute, seconds: current.second, elapsedDays, totalDays: elapsedDays + 1 };
 }
 
 function updateCounter() {
   const difference = calendarDifference(new Date());
   for (const [unit, value] of Object.entries(difference)) {
+    if (unit === 'elapsedDays' || unit === 'totalDays') continue;
     const el = document.getElementById(unit);
     if (el) el.textContent = String(value).padStart(2, '0');
   }
+  document.getElementById('elapsed-days').textContent = `Birlikte geçen toplam ${difference.elapsedDays} tam gün`;
+  document.getElementById('together-day').textContent = `Bugün bizim ${difference.totalDays}. günümüz. ♥`;
 }
 updateCounter();
 if (readRememberedEntry()) showMain();
@@ -149,9 +155,54 @@ const filmStrip = document.getElementById('film-strip');
 photos.forEach((photo, index) => {
   const figure = document.createElement('figure');
   figure.className = 'film-card';
-  figure.innerHTML = `<button class="photo-button" type="button" data-photo="${index}" aria-label="${photo.caption} fotoğrafını büyüt"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async"><span class="photo-zoom" aria-hidden="true">↗</span></button><figcaption><span>${photo.caption}</span><span>${String(index + 1).padStart(2, '0')}</span></figcaption>`;
+  const details = [photo.date, photo.location].filter(Boolean).join(' · ');
+  figure.innerHTML = `<button class="photo-button" type="button" data-photo="${index}" aria-label="${photo.caption} fotoğrafını büyüt"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async"><span class="photo-zoom" aria-hidden="true">↗</span></button><figcaption><span>${photo.caption}${details ? `<small>${details}</small>` : ''}</span><span>${String(index + 1).padStart(2, '0')}</span></figcaption>`;
   filmStrip.appendChild(figure);
 });
+
+/* Rastgele anı: aynı fotoğraf arka arkaya gelmez. */
+const randomButton = document.getElementById('random-memory');
+const randomPhoto = document.getElementById('random-photo');
+const randomImage = document.getElementById('random-image');
+const randomCaption = document.getElementById('random-caption');
+let randomIndex = 0;
+randomButton.addEventListener('click', () => {
+  randomIndex = (randomIndex + 1 + Math.floor(Math.random() * (photos.length - 1))) % photos.length;
+  const photo = photos[randomIndex];
+  randomImage.src = photo.src;
+  randomImage.alt = photo.alt;
+  randomPhoto.dataset.photo = String(randomIndex);
+  randomPhoto.setAttribute('aria-label', `${photo.caption} fotoğrafını büyüt`);
+  randomCaption.textContent = [photo.caption, photo.date, photo.location, photo.note].filter(Boolean).join(' · ');
+});
+
+document.querySelectorAll('.secret-card').forEach(button => {
+  button.addEventListener('click', () => {
+    const isOpen = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!isOpen));
+    button.querySelector('.secret-text').hidden = isOpen;
+  });
+});
+
+const musicButton = document.getElementById('music-toggle');
+const music = document.getElementById('background-music');
+if (MUSIC_SRC) {
+  music.src = MUSIC_SRC;
+  music.volume = 0.45;
+  musicButton.hidden = false;
+  musicButton.addEventListener('click', async () => {
+    if (music.paused) {
+      try { await music.play(); }
+      catch { return; }
+    } else {
+      music.pause();
+    }
+    const playing = !music.paused;
+    musicButton.setAttribute('aria-pressed', String(playing));
+    musicButton.setAttribute('aria-label', playing ? 'Müziği durdur' : 'Müziği aç');
+    document.getElementById('music-label').textContent = playing ? 'Müziği durdur' : 'Müziği aç';
+  });
+}
 
 const timeline = document.getElementById('timeline');
 timelineEvents.forEach(event => {
@@ -195,6 +246,7 @@ letterButton.addEventListener('click', () => {
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxMeta = document.getElementById('lightbox-meta');
 const lightboxCount = document.getElementById('lightbox-count');
 let activePhoto = 0;
 let lastFocused = null;
@@ -206,6 +258,7 @@ function displayPhoto(index) {
   lightboxImage.src = photo.src;
   lightboxImage.alt = photo.alt;
   lightboxCaption.textContent = photo.caption;
+  lightboxMeta.textContent = [photo.date, photo.location, photo.note].filter(Boolean).join(' · ');
   lightboxCount.textContent = `${String(activePhoto + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
 }
 function openLightbox(index, trigger) {

@@ -4,10 +4,11 @@ GitHub Pages üzerinde çalışan, tamamen statik bir anı sitesi. Başlangıç 
 
 ## Düzenleme rehberi
 
-- **Fotoğraflar:** Dosyalar `assets/photos/` içinde. Galerinin sırası, açıklamaları ve erişilebilirlik metinleri `js/main.js` içindeki `photos` dizisinde. Geniş açılış fotoğrafı `css/style.css` içindeki `.hero-photo`, final fotoğrafı `.final-section` arka planından değiştirilebilir. Sayfa içindeki özel fotoğraflar `index.html` içinde seçilmiştir.
+- **Fotoğraflar:** Dosyalar `assets/photos/` içinde. Galerinin sırası, açıklamaları ve erişilebilirlik metinleri `js/main.js` içindeki `photos` dizisinde. Her fotoğrafa isteğe bağlı `date`, `location` ve `note` alanları eklenebilir; bilinmeyen tarihler boş bırakılmıştır. Geniş açılış fotoğrafı `css/style.css` içindeki `.hero-photo`, final fotoğrafı `.final-section` arka planından değiştirilebilir. Sayfa içindeki özel fotoğraflar `index.html` içinde seçilmiştir.
 - **Mektup metni:** `index.html` içinde `<!-- MEKTUP METNİNİ BURADAN DEĞİŞTİR -->` yorumunu bulun.
 - **Timeline / anılar:** `js/main.js` içindeki `timelineEvents` dizisine `{ date, title, description, photo }` nesnesi ekleyin. `photo` isteğe bağlıdır.
-- **Başlangıç tarihi:** `js/main.js` içindeki `START_DATE` değerini, ayrıca `index.html` içindeki görünen tarih yazılarını değiştirin. Sayaç İstanbul saat dilimini kullanır.
+- **Başlangıç tarihi:** 07 Şubat 2024, İstanbul saatiyle 00:00:00. `js/main.js` içindeki `START_DATE` giriş cevabı, canlı sayaç, tamamlanan gün sayısı ve gün sırasının kaynağıdır. Sayfada ve sosyal paylaşım verilerinde görünen tarih de 07.02.2024'tür.
+- **Müzik:** İsteğe bağlı müzik dosyasını `assets/audio/` içine koyup `js/main.js` içindeki `MUSIC_SRC` değerine yolunu yazın. Dosya tanımlanınca müzik butonu görünür; ses yalnızca dokunma veya tıklamayla başlar.
 - **Giriş durumunu hatırlama:** Giriş mektubu her ziyarette yeniden görünür (`REMEMBER_ENTRY = false`). Bir kez açıldıktan sonra sonraki ziyaretlerde doğrudan siteye geçilmesini isterseniz bu değeri `true` yapın.
 - **Ana metinler:** `index.html` içindeki `<!-- ANA METİNLERİ BURADAN DEĞİŞTİR -->` yorumundan başlayın.
 
