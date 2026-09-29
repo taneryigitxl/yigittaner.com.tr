@@ -4,7 +4,7 @@
  * GİRİŞİ HATIRLA: false yaparsanız sayfa her açıldığında tarih yeniden sorulur.
  */
 const START_DATE = { year: 2024, month: 2, day: 7 };
-const REMEMBER_ENTRY = true;
+const REMEMBER_ENTRY = false;
 const STORAGE_KEY = 'bizim-hikayemiz-giris-v2';
 const TIME_ZONE = 'Europe/Istanbul';
 
@@ -34,8 +34,8 @@ const photos = [
 
 /* TIMELINE / ANILAR: { date, title, description, photo } biçiminde yeni olay ekleyin. photo isteğe bağlıdır. */
 const timelineEvents = [
-  { date: '07.02.2024', title: 'Her şeyin başladığı gün.', description: 'Bizim hikâyemizin ilk sayfası.' },
-  { date: 'Bugün', title: 'Ve hikâyemiz devam ediyor.', description: 'Birlikte geçirdiğimiz her yeni gün, bu hikâyeye yeni bir satır ekliyor.' }
+  { date: '07.02.2024', title: 'Taner ve Nisa’nın hikâyesi başladı.', description: 'Birlikte yazacağımız hikâyenin ilk sayfası.' },
+  { date: 'Bugün', title: 'İyi ki hâlâ yan yanayız.', description: 'Her yeni gün, konuşmalarımız ve biriktirdiğimiz anılarla hikâyemize yeni bir satır ekliyor.' }
 ];
 
 const entry = document.getElementById('entry');

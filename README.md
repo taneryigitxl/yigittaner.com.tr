@@ -8,7 +8,7 @@ GitHub Pages üzerinde çalışan, tamamen statik bir anı sitesi. Başlangıç 
 - **Mektup metni:** `index.html` içinde `<!-- MEKTUP METNİNİ BURADAN DEĞİŞTİR -->` yorumunu bulun.
 - **Timeline / anılar:** `js/main.js` içindeki `timelineEvents` dizisine `{ date, title, description, photo }` nesnesi ekleyin. `photo` isteğe bağlıdır.
 - **Başlangıç tarihi:** `js/main.js` içindeki `START_DATE` değerini, ayrıca `index.html` içindeki görünen tarih yazılarını değiştirin. Sayaç İstanbul saat dilimini kullanır.
-- **Giriş durumunu hatırlama:** `js/main.js` içindeki `REMEMBER_ENTRY` değerini `false` yapın. Mevcut kayıtları sıfırlamak için `STORAGE_KEY` sürümünü değiştirin.
+- **Giriş durumunu hatırlama:** Giriş mektubu her ziyarette yeniden görünür (`REMEMBER_ENTRY = false`). Bir kez açıldıktan sonra sonraki ziyaretlerde doğrudan siteye geçilmesini isterseniz bu değeri `true` yapın.
 - **Ana metinler:** `index.html` içindeki `<!-- ANA METİNLERİ BURADAN DEĞİŞTİR -->` yorumundan başlayın.
 
 ## Fotoğraf eşlemesi
